@@ -6,19 +6,19 @@ const alphaLowerCase = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', '
 const numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 const symbols = ['!', '@', '#', '$', '%', '^', '&', '*', '_', '-', '+', '='];
 
+var passwordAccumulator = '';
 
 var passwordSize = window.prompt("How long would you like your password? (8-128)");
-console.log(passwordSize);
+var passwordSizeNumber = parseInt(passwordSize);
 // var cAlphaU = window.confirm("Would you like uppercase characters?");
 // var cAlpha5L = window.confirm("Would you like lowercase characters?");
 // var cNumbers = window.confirm("Would you like numeric characters?");
 // var cSymbols = window.confirm("Would you like special characters?");
-var passwordAccumulator = '';
 
 ///////////
 function generatePassword() {
 
-  for (i = 0; i < 10; i++) {
+  for (i = 0; i < passwordSizeNumber; i++) {
     var randomAlphaUpper = alphaUpperCase[Math.floor(Math.random() * 26)];
     console.log(randomAlphaUpper);
     var randomAlphaLower = alphaLowerCase[Math.floor(Math.random() * 26)];
