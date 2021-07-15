@@ -6,57 +6,54 @@ const alphaLowerCase = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', '
 const numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 const symbols = ['!', '@', '#', '$', '%', '^', '&', '*', '_', '-', '+', '='];
 
-var passwordAccumulator = '';
 
-var passwordSize = window.prompt("How long would you like your password? (8-128)");
-var passwordSizeNumber = parseInt(passwordSize);
-// var cAlphaU = window.confirm("Would you like uppercase characters?");
-// var cAlpha5L = window.confirm("Would you like lowercase characters?");
-// var cNumbers = window.confirm("Would you like numeric characters?");
-// var cSymbols = window.confirm("Would you like special characters?");
 
-///////////
 function generatePassword() {
-
-  for (i = 0; i < passwordSizeNumber; i++) {
-    var randomAlphaUpper = alphaUpperCase[Math.floor(Math.random() * 26)];
-    console.log(randomAlphaUpper);
-    var randomAlphaLower = alphaLowerCase[Math.floor(Math.random() * 26)];
-    console.log(randomAlphaLower);
-    var randomNumber = numbers[Math.floor(Math.random() * 10)];
-    console.log(randomNumber);
-    var randomSymbol = symbols[Math.floor(Math.random() * 11)];
-    console.log(randomSymbol);
-    passwordAccumulator += randomAlphaUpper;
-    passwordAccumulator += randomAlphaLower;
-    passwordAccumulator += randomNumber;
-    passwordAccumulator += randomSymbol;
+  var aggregatedVariables = [];
+  var passwordAccumulator = [];
 
 
+  //Establish password length
+  var passwordSize = parseInt(window.prompt("How long would you like your password? (8-128)"));
+  console.log(passwordSize);
+  if (passwordSize < 8 || passwordSize > 128) {
+    return window.alert("Password must be within 8 and 128 characters!");
   }
 
-  return passwordAccumulator;
+  //Establish Uppercase
+  var uChoiceAlUpper = window.confirm("Would you like uppercase characters?");
+  if (uChoiceAlUpper) {
+    aggregatedVariables = [...alphaUpperCase];
+  }
 
+  //Establish Lowercase
+  var uChoiceAlLower = window.confirm("Would you like lowercase characters?");
+  if (uChoiceAlLower) {
+    aggregatedVariables = [...aggregatedVariables, ...alphaLowerCase];
+  }
 
+  //Establish Numbers
+  var uChoiceNumbers = window.confirm("Would you like numeric characters?");
+  if (uChoiceNumbers) {
+    aggregatedVariables = [...aggregatedVariables, ...numbers]
+  }
 
+  //Establish Symbols
+  var uChoiceSymbols = window.confirm("Would you like special characters?");
+  if (uChoiceSymbols) {
+    aggregatedVariables = [...aggregatedVariables, ...symbols]
+    console.log(aggregatedVariables);
+  }
 
-
-
-
-
-
-
-
-
-
-
-  //   // 
-
-
-  //   // passwordAccumulator.push(randomAlphaUpper);
-
-
-  // return passwordAccumulator;
+  if (!uChoiceAlUpper && !uChoiceAlLower && !uChoiceNumbers && !uChoiceSymbols) {
+    return window.alert("Password cannot be null! Choose at least one set of characters to be used in password.");
+  } else {
+    for (i = 0; i < passwordSize; i++) {
+      passwordAccumulator += aggregatedVariables[Math.floor(Math.random() * aggregatedVariables.length)];
+    }
+    console.log(passwordAccumulator);
+    return passwordAccumulator;
+  }
 }
 
 
@@ -71,78 +68,5 @@ function writePassword() {
 
 
 
-
-
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-
-
-
-
-
-
-
-//Questions:
-//Why is the above function written as var password = generatePassword();?
-//How does one choose random variables?
-//How does one add them in pre-selected amounts?
-//How does the '+=' operator work?
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//Try #2
-// function generatePassword (cLength, cAlphaU, cAlphaL, cNumbers, cSymbols) {
-
-// for (i = 0; i < cLength; i++) {
-//     characterAggregator = alphaU[Math.floor(Math.random() * 26)];
-//     characterAggregator += characterAggregator;
-// }
-//     return characterAggregator;
-// };
-
-
-
-
-//Try #1
-// function writePassword() {
-
-//     generatePassword();
-
-
-//     var password = generatePassword(cLength, cAlphaU, cAlphaL, cNumbers, cSymbols) {
-//         for (i = 0; i < cLength; i++) {
-//             let generatedPassword;
-//             alphaU[Math.floor(Math.random() * 26)];
-
-//             password += alphaU;
-//         }
-
-//         return generatedPassword;
-// };
-// }
-
-// var passwordText = document.querySelector("#password");
-
-// passwordText.value = password;
-
-
-
-
-// // Add event listener to generate button
-// generateBtn.addEventListener("click", writePassword);
-
-// console.log(Math.floor(Math.random() * 26));
