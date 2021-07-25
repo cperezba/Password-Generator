@@ -25,21 +25,25 @@ This simple application's purpose is to create a custom password that is adapted
 
 ## <a id="installation-header"></a> Installation
 
-No installation necessary! Simply follow the link provided at the top of this page and click on "Generate Password." Follow the prompts and it provided your desired password in the provided text box!
+No installation necessary! To acccess the application, simply follow the link [here](https://cperezba.github.io/password-generator/).
 
 <br/>
 
 ## <a id="usage-header"></a> Usage
 
-As stated above, merely follow the prompts after pressing the "Generate Password" button at the beginning of the page.
+To use the application, merely click "Generate Password." Follow the prompts provided to create your personalized password and it should appear on the provided text box!
 
+---
 
+![Password Generator UI Image](Assets/images/password-generator-main.png)
+
+---
 
 <br/>
 
 ## <a id="credits-header"></a> Credits
 
-Credit goes to the UTA Bootcamp for providing instruction and tools for learning Full-stack web development.
+Credit goes to the UTA Bootcamp for providing instruction and tools for learning their course on 'Full-Stack Web Development.'
 
 <br/>
 
