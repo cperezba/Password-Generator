@@ -59,3 +59,5 @@ Password Generator is released under the MIT licence.
 For more information and suggestions you can contact me at caperez317@gmail.com.
 
 For a list of other projects and repos visit https://github.com/cperezba
+
+---
